@@ -21,6 +21,11 @@
         <li class="nav-item">
           <a class="nav-link" href="connexion.php">Connexion</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="deconnexion.php">deconnexion</a>
+        </li>
+        
+
         
       </ul>
     </div>

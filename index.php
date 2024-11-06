@@ -16,8 +16,17 @@ if (isset($_POST["Add"])) {
     $passwordValue = $_POST["password"];
     $confirmpasswordValue = $_POST["confirmpassword"];
 
+    $emailPattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+    $passwordPattern = "/^(?=.*[A-Z])(?=.*[0-9]).{8,}$/";
+
     if (empty($firstnameValue) || empty($lastnameValue) || empty($loginValue) || empty($passwordValue) || empty($confirmpasswordValue)) {
         echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">Veuillez remplir les informations!</div></div>';
+    } elseif (!preg_match($emailPattern, $loginValue)) {
+        echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">L\'adresse e-mail est invalide!</div></div>';
+    } elseif (!preg_match($passwordPattern, $passwordValue)) {
+        echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">Le mot de passe doit contenir au moins une lettre majuscule et un chiffre.</div></div>';
+    } elseif ($passwordValue !== $confirmpasswordValue) {
+        echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">Les mots de passe ne correspondent pas!</div></div>';
     } else {
         require_once "include/database.php";
         
@@ -39,6 +48,7 @@ if (isset($_POST["Add"])) {
     echo '<div class="d-flex justify-content-center"><div class="alert alert-warning text-center" role="alert" style="max-width: 400px;">Veuillez vous connecter !</div></div>';
 }
 ?>
+
 
 
     
