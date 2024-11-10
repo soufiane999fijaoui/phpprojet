@@ -29,7 +29,6 @@ if (isset($_POST["Add"])) {
         $sqlState->execute([$loginValue, $passwordValue]);
 
         if ($sqlState->rowCount() >= 1) {
-            session_start();
             $_SESSION["utilisateur"] = $sqlState->fetch();
             header("Location: admin.php");
             exit(); 

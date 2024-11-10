@@ -10,7 +10,7 @@
     include "include/navbar.php";?>
     <div class="container py-2">
         <?php
-        session_start();
+        
         if ( !isset($_SESSION["utilisateur"])) {
             header("Location: connexion.php");
             

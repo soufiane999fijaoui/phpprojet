@@ -1,3 +1,12 @@
+<?php
+session_start();
+$connecte=false;
+if (isset($_SESSION["utilisateur"])) {
+  $connecte=true;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +27,33 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Add user</a>
         </li>
+        <?php
+        if ($connecte) {
+          ?>
+           <li class="nav-item">
+          <a class="nav-link" href="AddCategorie.php">Add categorie</a>
+        </li>
         <li class="nav-item">
-          <a class="nav-link" href="connexion.php">Connexion</a>
+          <a class="nav-link" href="AddProduct.php">Add Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="deconnexion.php">deconnexion</a>
         </li>
         
+          
+          <?php
+
+          
+        }
+        else {
+          ?>
+           <li class="nav-item">
+          <a class="nav-link" href="connexion.php">Connexion</a>
+        </li>
+
+          <?php
+        }
+        ?>
 
         
       </ul>
