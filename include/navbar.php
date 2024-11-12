@@ -25,7 +25,7 @@ if (isset($_SESSION["utilisateur"])) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Add user</a>
+          <a class="nav-link active" aria-current="page" href="signup.php"> sign up</a>
         </li>
         <?php
         if ($connecte) {
@@ -34,11 +34,20 @@ if (isset($_SESSION["utilisateur"])) {
           <a class="nav-link" href="AddCategorie.php">Add categorie</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="ListeCategories.php">Liste Categorie</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="AddProduct.php">Add Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ListeProducts.php">Liste Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="deconnexion.php">deconnexion</a>
         </li>
+       
+        
+
         
           
           <?php
@@ -48,7 +57,7 @@ if (isset($_SESSION["utilisateur"])) {
         else {
           ?>
            <li class="nav-item">
-          <a class="nav-link" href="connexion.php">Connexion</a>
+          <a class="nav-link" href="signin.php">sign in</a>
         </li>
 
           <?php

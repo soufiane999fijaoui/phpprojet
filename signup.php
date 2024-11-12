@@ -16,8 +16,9 @@ if (isset($_POST["Add"])) {
     $passwordValue = $_POST["password"];
     $confirmpasswordValue = $_POST["confirmpassword"];
 
-    $emailPattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
-    $passwordPattern = "/^(?=.*[A-Z])(?=.*[0-9]).{8,}$/";
+   $emailPattern = "/^[a-zA-Z0-9._%+-]+@emsi\.ma$/";
+   $passwordPattern = "/^(?=.*[A-Z]).{8,}$/";
+
 
     if (empty($firstnameValue) || empty($lastnameValue) || empty($loginValue) || empty($passwordValue) || empty($confirmpasswordValue)) {
         echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">Veuillez remplir les informations!</div></div>';
@@ -40,12 +41,12 @@ if (isset($_POST["Add"])) {
             $date = date("Y-m-d");
             $sqlState = $pdo->prepare("INSERT INTO utilisateur VALUES(null,?,?,?,?,?,?)");
             $sqlState->execute([$firstnameValue, $lastnameValue, $loginValue, $passwordValue, $confirmpasswordValue, $date]);
-            header("Location: connexion.php");
+            header("Location: signin.php");
             exit();
         }
     }
 } else {
-    echo '<div class="d-flex justify-content-center"><div class="alert alert-warning text-center" role="alert" style="max-width: 400px;">Veuillez vous connecter !</div></div>';
+    
 }
 ?>
 

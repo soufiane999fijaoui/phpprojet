@@ -14,6 +14,9 @@ if (isset($_POST["Add"])) {
     $loginValue = $_POST["email"];
     $passwordValue = $_POST["password"];
     $confirmpasswordValue = $_POST["confirmpassword"];
+    $emailPattern = "/^[a-zA-Z0-9._%+-]+@emsi\.ma$/";
+    
+
 
     if (empty($loginValue) || empty($passwordValue) || empty($confirmpasswordValue)) {
         echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">
@@ -23,7 +26,16 @@ if (isset($_POST["Add"])) {
         echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">
                 Le mot de passe est incorrect.
               </div></div>';
-    } else {
+              
+
+    } elseif (!preg_match($emailPattern, $loginValue)) {
+      echo '<div class="d-flex justify-content-center"><div class="alert alert-danger text-center" role="alert" style="max-width: 400px;">
+              email  est incorespendant.
+            </div></div>';
+            
+
+  } 
+    else {
         require_once "include/database.php";
         $sqlState = $pdo->prepare("SELECT * FROM utilisateur WHERE email = ? AND password = ?");
         $sqlState->execute([$loginValue, $passwordValue]);
@@ -39,9 +51,7 @@ if (isset($_POST["Add"])) {
         }
     }
 } else {
-    echo '<div class="d-flex justify-content-center"><div class="alert alert-warning text-center" role="alert" style="max-width: 400px;">
-            Veuillez vous connecter.
-          </div></div>';
+   
 }
 ?>
 
