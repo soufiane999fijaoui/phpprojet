@@ -19,10 +19,8 @@ if (isset($_POST["AjouterCategorie"])) {
         require_once"include/database.php";
         $sqlstate=$pdo->prepare("INSERT INTO categorie(libelle,description) VALUES(?,?)");
         $sqlstate->execute([$libelleValue, $DescriptionValue]);
-        ?> 
-        <div class="d-flex justify-content-center"><div class="alert alert-success text-center" role="alert" style="max-width: 400px;"><?php echo "$libelleValue et  $DescriptionValue "?> est  bien ajouter !</div></div>;
-        
-        <?php
+        header("Location: ListeCategories.php");
+       
     }
    
 }
