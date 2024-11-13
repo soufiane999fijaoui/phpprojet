@@ -36,8 +36,8 @@ include "include/navbar.php";
                     <td><?php echo $categorie['description']; ?></td>
                     <td><?php echo $categorie['date_creation']; ?></td>
                     <td>
-                        <input type="submit" value="Modifier" class="btn btn-primary btn-sm mr-2">
-                        <input type="submit" value="Supprimer" class="btn btn-danger btn-sm">
+                       <a href="UpdateCategorie.php ? id=<?php echo $categorie['id'] ?>" class="btn btn-primary btn-sm mr-2">Modifier</a>
+                       <a href="SupprimerCategorie.php ? id=<?php echo $categorie['id'] ?> " class="btn btn-danger btn-sm mr-2">Supprimer</a>
                     </td>
                 </tr>
             <?php

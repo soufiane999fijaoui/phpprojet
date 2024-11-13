@@ -41,8 +41,8 @@ include "include/navbar.php";
                     <td><?php echo $product['categorie_libelle']; ?></td>
                     <td><?php echo $product['date_creation']; ?></td>
                     <td>
-                        <input type="submit" value="Modifier" class="btn btn-primary btn-sm mr-2">
-                        <input type="submit" value="Supprimer" class="btn btn-danger btn-sm">
+                    <a href="UpdateProduct.php ? id=<?php echo $product['id'] ?>" class="btn btn-primary btn-sm mr-2">Modifier</a>
+                    <a href="SupprimerProduct.php ? id=<?php echo $product['id'] ?> " class="btn btn-danger btn-sm mr-2">Supprimer</a>
                     </td>
                 </tr>
             <?php

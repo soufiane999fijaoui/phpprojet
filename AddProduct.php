@@ -30,43 +30,53 @@ if (isset($_POST["AddProducts"])) {
 }
 ?>
 
-<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <form method="post" class="p-5 border rounded" style="width: 500px;">
-        <h3 class="text-center mb-4">Add Product</h3>
+<div class="container my-5">
+  <div class="row align-items-center">
+   
+    <div class="col-lg-5 text-center mb-4 mb-lg-0">
+      <img src="add.png" class="img-fluid" alt="Add Product" style="max-width: 70%; height: auto;">
+    </div>
 
-        <div class="form-group mb-4">
-            <label>Libelle</label>
-            <input name="libelle" type="text" class="form-control form-control-lg" placeholder="Libelle">
-        </div>
-
-        <div class="form-group mb-4">
-            <label>Price</label>
-            <input name="Price" type="number" class="form-control form-control-lg" min="0" placeholder="Price">
-        </div>
-
-        <div class="form-group mb-4">
-            <label>Discount</label>
-            <input name="Discount" type="number" class="form-control form-control-lg" min="0" max="90" placeholder="Discount">
-        </div>
-
-        <?php
-        $categories = $pdo->query("SELECT * FROM categorie")->fetchAll(PDO::FETCH_ASSOC);
-        ?>
-        <div class="form-group mb-4">
-            <label>Category</label>
-            <select name="categorie" class="form-control">
+    <div class="col-lg-7">
+      <div class="card shadow-lg">
+        <div class="card-body p-5">
+          <h3 class="text-center mb-4">Add Product</h3>
+          <form method="post">
+            <div class="form-group mb-4">
+              <label for="libelle">Libelle</label>
+              <input name="libelle" type="text" class="form-control form-control-lg" id="libelle" placeholder="Libelle">
+            </div>
+            <div class="form-group mb-4">
+              <label for="price">Price</label>
+              <input name="Price" type="number" class="form-control form-control-lg" id="price" min="0" placeholder="Price">
+            </div>
+            <div class="form-group mb-4">
+              <label for="discount">Discount</label>
+              <input name="Discount" type="number" class="form-control form-control-lg" id="discount" min="0" max="90" placeholder="Discount">
+            </div>
+            <?php
+            $categories = $pdo->query("SELECT * FROM categorie")->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <div class="form-group mb-4">
+              <label for="category">Category</label>
+              <select name="categorie" class="form-control" id="category">
                 <option>Select the category</option>
                 <?php
                 foreach ($categories as $category) {
                     echo "<option value='" . $category['id'] . "'>" . htmlspecialchars($category['libelle']) . "</option>";
                 }
                 ?>
-            </select>
+              </select>
+            </div>
+            <button name="AddProducts" type="submit" class="btn btn-success w-100 btn-lg">Add Product</button>
+          </form>
         </div>
-
-        <button type="submit" name="AddProducts" class="btn btn-success my-2 d-block mx-auto">Add Products</button>
-    </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 </body>
 </html>

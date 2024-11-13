@@ -53,34 +53,40 @@ if (isset($_POST["Add"])) {
 
 
     
-</div>
-  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-  <form method="post" class="p-5 border rounded" style="width: 500px;">
-    <h3 class="text-center mb-4">sign up</h3>
-    <div class="form-group mb-4">
-      <label >FirstName</label>
-      <input name="firstname" type="text" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="FirstName">
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <form method="post" class="p-4 border shadow-lg rounded" style="width: 600px; height: auto;">
+    <div class="mb-4 text-center">
+      <img src="sign-up.png" alt="Form Icon" style="width: 50px; height: 50px;">
+    </div>
+    
+    <h3 class="text-center mb-4">Sign Up</h3>
+    
+    <div class="form-group mb-3">
+      <label>First Name</label>
+      <input name="firstname" type="text" class="form-control form-control-lg" placeholder="First Name">
     </div>
 
-    <div class="form-group mb-4">
-      <label >LastName</label>
-      <input name="lastname" type="text" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="LastName">
+    <div class="form-group mb-3">
+      <label>Last Name</label>
+      <input name="lastname" type="text" class="form-control form-control-lg" placeholder="Last Name">
     </div>
-    <div class="form-group mb-4">
+
+    <div class="form-group mb-3">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" name="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
 
-    <div class="form-group mb-4">
+    <div class="form-group mb-3">
       <label for="exampleInputPassword1">Password</label>
-      <input name="password" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+      <input name="password" type="password" class="form-control form-control-lg" placeholder="Password">
     </div>
 
-    <div class="form-group mb-4">
-      <label for="exampleInputPassword1">Comfirm Password</label>
-      <input name="confirmpassword" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Comfirm Password">
+    <div class="form-group mb-3">
+      <label for="exampleInputPassword1">Confirm Password</label>
+      <input name="confirmpassword" type="password" class="form-control form-control-lg" placeholder="Confirm Password">
     </div>
+    
     <button name="Add" type="submit" class="btn btn-success w-100 btn-lg">Submit</button>
   </form>
 </div>
